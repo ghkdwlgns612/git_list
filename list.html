@@ -18,6 +18,26 @@
     <li>제목4</li>
 </ul>
 
+<script>
+    let title = document.getElementById('title');
+    let list = document.getElementById('list');
+    let li = list.getElementsByTagName('li');
+    let addBtn = document.getElementById('add-btn');
+
+    for(i=0;i<li.length;i++){
+        li[i].addEventListener('click',activeitem);
+    }
+
+    function activeitem(){
+
+        title.innerHTML = this.innerHTML;
+        for(let j = 0; j < li.length;j++){
+            li[j].removeAttribute('class');
+        }
+        
+        this.setAttribute('class','active');
+    }
+</script>
 
 </body>
 </html>
