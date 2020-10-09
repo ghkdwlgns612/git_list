@@ -37,6 +37,11 @@
         
         this.setAttribute('class','active');
     }
+
+    addBtn.addEventListener('click',function(){
+        let txt = prompt("제목 입력");
+        list.innerHTML += "<li>" + txt + "</li>";
+    });
 </script>
 
 </body>
