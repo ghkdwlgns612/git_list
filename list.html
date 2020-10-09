@@ -24,18 +24,19 @@
     let li = list.getElementsByTagName('li');
     let addBtn = document.getElementById('add-btn');
 
-    for(i=0;i<li.length;i++){
-        li[i].addEventListener('click',activeitem);
-    }
+    
+    list.addEventListener('click',activeitem);
+    
 
-    function activeitem(){
-
-        title.innerHTML = this.innerHTML;
-        for(let j = 0; j < li.length;j++){
-            li[j].removeAttribute('class');
+    function activeitem(event){
+        if(event.target.nodeName == 'LI'){
+        title.innerHTML = event.target.innerHTML;
+        for(let j = 0; j < event.target.parentNode.children.length;j++){
+            event.target.parentNode.children[j].removeAttribute('class');
         }
         
-        this.setAttribute('class','active');
+        event.target.setAttribute('class','active');
+    }
     }
 
     addBtn.addEventListener('click',function(){
